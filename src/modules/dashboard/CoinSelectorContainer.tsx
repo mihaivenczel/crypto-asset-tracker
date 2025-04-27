@@ -1,7 +1,8 @@
+import React from "react";
 import { useCoinSelectorLogic } from "./CoinSelectorLogic";
 import CoinSelectorUI from "./CoinSelectorUI";
 
-const CoinSelectorContainer = () => {
+const CoinSelectorContainer: React.FC = () => {
   const {
     coinList,
     selectedCoin,

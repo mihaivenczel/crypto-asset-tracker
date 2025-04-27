@@ -45,5 +45,5 @@ const coinSlice = createSlice({
 });
 
 export const { selectCoin, selectTimeframe } = coinSlice.actions;
-
+export const coinReducer = coinSlice.reducer;
 export default coinSlice.reducer;

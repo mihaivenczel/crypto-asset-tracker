@@ -14,7 +14,10 @@ interface PriceChartProps {
 
 const PriceChart = ({ data, timeframe }: PriceChartProps) => {
   return (
-    <div className="w-full max-w-6xl p-6 mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex flex-col items-center">
+    <div
+      data-testid="price-chart"
+      className="w-full max-w-6xl p-6 mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex flex-col items-center"
+    >
       <h2 className="text-2xl font-bold mb-6 text-center dark:text-gray-100">
         {timeframe === 1
           ? "Price (last 24 hours)"
