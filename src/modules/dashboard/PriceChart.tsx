@@ -32,14 +32,15 @@ const PriceChart = ({ data, timeframe }: PriceChartProps) => {
               }}
               labelStyle={{ color: "#F9FAFB" }}
               itemStyle={{ color: "#F9FAFB" }}
+              formatter={(value: number) => `$${value.toFixed(2)}`}
             />
             <Line
-              type="basis"
+              type="monotone"
               dataKey="price"
               stroke="#60A5FA"
-              strokeWidth={1}
-              dot={{ r: 2 }}
-              // activeDot={{ r: 1 }}
+              strokeWidth={2}
+              dot={false}
+              activeDot={{ r: 5 }}
             />
           </LineChart>
         </ResponsiveContainer>
