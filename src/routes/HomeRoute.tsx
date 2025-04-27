@@ -1,4 +1,4 @@
-import CoinSelectorModule from "../modules/dashboard/CoinSelectorModule";
+import CoinSelectorContainer from "../modules/dashboard/CoinSelectorContainer";
 
 const HomeRoute = () => {
   return (
@@ -6,7 +6,7 @@ const HomeRoute = () => {
       <h1 className="text-4xl font-bold mb-8 text-blue-600 dark:text-white">
         Crypto Asset Tracker
       </h1>
-      <CoinSelectorModule />
+      <CoinSelectorContainer />
     </div>
   );
 };

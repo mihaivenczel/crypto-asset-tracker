@@ -1,4 +1,4 @@
-import { Timeframe, TIMEFRAME_OPTIONS } from "../shared";
+import { Timeframe, TIMEFRAME_OPTIONS } from "../../../shared";
 
 interface TimeframeSelectorProps {
   selected: Timeframe;

@@ -1,9 +1,10 @@
+import { Coin } from "../../../shared";
 import { createApiClient } from "../apiClient";
 
-const api = createApiClient(baseURL);
+const api = createApiClient();
 
-export const getSimplePrice = (ids: string[]) => {
-  return api.get(`/simple/price`, {
+export const getSimplePrice = <T = unknown>(ids: string[]) => {
+  return api.get<T>("/simple/price", {
     params: {
       ids: ids.join(","),
       vs_currencies: "usd",
@@ -11,8 +12,11 @@ export const getSimplePrice = (ids: string[]) => {
   });
 };
 
-export const getCoinMarketChart = (id: string, days: number) => {
-  return api.get(`/coins/${id}/market_chart`, {
+export const getCoinMarketChart = <T = unknown>(
+  coinId: string,
+  days: number
+) => {
+  return api.get<T>(`/coins/${coinId}/market_chart`, {
     params: {
       vs_currency: "usd",
       days,
@@ -21,7 +25,7 @@ export const getCoinMarketChart = (id: string, days: number) => {
 };
 
 export const getTopCoins = () => {
-  return api.get(`/coins/markets`, {
+  return api.get<Coin[]>("/coins/markets", {
     params: {
       vs_currency: "usd",
       order: "market_cap_desc",

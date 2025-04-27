@@ -1,29 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import HomeRoute from "./routes/HomeRoute";
+import { Provider } from "react-redux";
+import { store } from "./state";
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
   useEffect(() => {
+    // make it dark becuse eyes hurt
     const root = window.document.documentElement;
-    if (darkMode) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-  }, [darkMode]);
+    root.classList.add("dark");
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col items-center">
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className="absolute top-4 right-4 p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-black dark:text-white"
-      >
-        {darkMode ? "Light Mode" : "Dark Mode"}
-      </button>
-
-      <HomeRoute />
-    </div>
+    <Provider store={store}>
+      <div className="min-h-screen w-full dark text-white flex flex-col items-center">
+        <HomeRoute />
+      </div>
+    </Provider>
   );
 };
 

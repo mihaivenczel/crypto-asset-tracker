@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Minimal custom global CSS */
 html,
 body {
   margin: 0;
