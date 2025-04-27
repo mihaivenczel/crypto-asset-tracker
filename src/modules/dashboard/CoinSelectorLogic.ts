@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Timeframe } from "../../shared";
-import { AppDispatch, RootState } from "../../state";
+import { AppDispatch, RootState } from "../../state/store";
 import {
   fetchTopCoins,
   selectCoin,
@@ -19,19 +19,25 @@ export const useCoinSelectorLogic = () => {
     selectedCoinId,
     price,
     priceHistory,
-    loading,
+    _persist,
   } = useSelector((state: RootState) => state.coin);
 
+  const { rehydrated } = _persist;
+
   useEffect(() => {
+    if (!rehydrated) return;
+
     // debounce the call so that we don't get restricted from the api for too many reqs
     const timeoutId = setTimeout(() => {
-      dispatch(fetchTopCoins());
+      if (topCoins.length === 0) {
+        dispatch(fetchTopCoins());
+      }
     }, 300);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [dispatch]);
+  }, [dispatch, rehydrated, topCoins.length]);
 
   const onSelectCoin = (coinId: string) => {
     dispatch(selectCoin(coinId));
@@ -50,7 +56,7 @@ export const useCoinSelectorLogic = () => {
     selectedTimeframe,
     price,
     priceHistory,
-    loadingCoins: loading,
+    loadingCoins: rehydrated,
     onSelectCoin,
     onSelectTimeframe,
   };

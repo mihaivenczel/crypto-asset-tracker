@@ -1,4 +1,4 @@
-import { RootState } from "..";
+import { RootState } from "../store";
 
 export const selectTopCoins = (state: RootState) => state.coin.topCoins;
 export const selectSelectedCoin = (state: RootState) =>

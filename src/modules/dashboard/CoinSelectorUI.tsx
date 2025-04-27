@@ -12,7 +12,7 @@ const CoinSelectorUI: React.FC<CoinSelectorUIProps> = ({
   onSelectCoin,
   onSelectTimeframe,
 }) => {
-  if (loadingCoins) {
+  if (!loadingCoins) {
     return (
       <div
         data-testid="loading-spinner"

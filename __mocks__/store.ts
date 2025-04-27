@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { coinReducer } from "../src/state/coin/coinSlice";
-import { RootState } from "../src/state";
+import { RootState } from "../src/state/store";
 
 export const createMockStore = (preloadedState?: Partial<RootState>) => {
   return configureStore({

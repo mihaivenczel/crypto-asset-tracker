@@ -26,6 +26,10 @@ describe("CoinSelectorContainer UI", () => {
         price: null,
         priceHistory: [],
         loading: true,
+        _persist: {
+          version: 1,
+          rehydrated: true,
+        },
       },
     });
 

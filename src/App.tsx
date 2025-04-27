@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import HomeRoute from "./routes/HomeRoute";
 import { Provider } from "react-redux";
-import { store } from "./state";
+import { persistor, store } from "./state/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const App = () => {
   useEffect(() => {
@@ -12,9 +13,11 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <div className="min-h-screen w-full dark text-white flex flex-col items-center">
-        <HomeRoute />
-      </div>
+      <PersistGate persistor={persistor}>
+        <div className="min-h-screen w-full dark text-white flex flex-col items-center">
+          <HomeRoute />
+        </div>
+      </PersistGate>
     </Provider>
   );
 };

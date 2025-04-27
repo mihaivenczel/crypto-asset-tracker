@@ -23,6 +23,10 @@ describe("Coin Slice Business Logic", () => {
         price: null,
         priceHistory: [],
         loading: false,
+        _persist: {
+          version: 1,
+          rehydrated: true,
+        },
       },
     });
 
@@ -41,6 +45,10 @@ describe("Coin Slice Business Logic", () => {
         price: null,
         priceHistory: [],
         loading: false,
+        _persist: {
+          version: 1,
+          rehydrated: true,
+        },
       },
     });
 
