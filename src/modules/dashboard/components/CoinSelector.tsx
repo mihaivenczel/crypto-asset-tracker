@@ -11,7 +11,6 @@ const CoinSelector = ({
   selectedCoin,
   onSelectCoin,
 }: CoinSelectorProps) => {
-  console.log(selectedCoin, "coin");
   return (
     <div className="flex flex-col items-center gap-2 mt-6">
       <label htmlFor="coin" className="text-lg font-semibold">

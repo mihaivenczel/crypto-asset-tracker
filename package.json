@@ -12,6 +12,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
     "@reduxjs/toolkit": "^2.7.0",
     "axios": "^1.9.0",
     "react": "^19.0.0",

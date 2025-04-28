@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import coinReducer from "./coin/coinSlice";
 import storage from "redux-persist/lib/storage";
+import { walletReducer } from "./wallet/walletSlice";
 
 const persistConfig = {
   key: "root",
@@ -14,6 +15,7 @@ const persistedReducer = persistReducer(persistConfig, coinReducer);
 export const store = configureStore({
   reducer: {
     coin: persistedReducer,
+    wallet: walletReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
